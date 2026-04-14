@@ -12,14 +12,23 @@ def generate_ai_report(findings):
     }
 
     headers = {
-        "Authorization": f"Bearer {os.getenv('MY_API_KEY')}",
+        "Authorization": f"Bearer {os.getenv('API_KEY')}",
         "Content-Type": "application/json"
     }
 
-    r = requests.post(
-        "https://sushi.it.ilstu.edu:8080/api/chat/completions",
-        headers=headers,
-        json=payload
-    )
+    try:
+        r = requests.post(
+            "http://sushi.it.ilstu.edu:8080/api/chat/completions",
+            headers=headers,
+            json=payload,
+            timeout=15
+        )
 
-    return r.json()["choices"][0]["message"]["content"]
+        try:
+            data = r.json()
+            return data["choices"][0]["message"]["content"]
+        except:
+            return f"[!] Unexpected API format:\n{r.text}"
+
+    except Exception as e:
+        return f"[!] AI request failed: {e}"
