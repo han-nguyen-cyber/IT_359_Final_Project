@@ -1,26 +1,13 @@
 import requests, os, json
 
 def generate_ai_report(findings):
-    structured = [
-        {
-            "type": f[0],
-            "severity": f[1],
-            "url": f[2]
-        }
-        for f in findings
-    ]
+    structured = [{"type":f[0],"severity":f[1],"url":f[2]} for f in findings]
 
     payload = {
         "model": "translategemma:latest",
         "messages": [
-            {
-                "role": "system",
-                "content": "You are a cybersecurity expert. Generate a detailed vulnerability report with risk analysis, remediation, and MITRE ATT&CK mapping."
-            },
-            {
-                "role": "user",
-                "content": json.dumps(structured, indent=2)
-            }
+            {"role": "system", "content": "Generate a cybersecurity report with risk, remediation, and MITRE ATT&CK mapping."},
+            {"role": "user", "content": json.dumps(structured, indent=2)}
         ]
     }
 

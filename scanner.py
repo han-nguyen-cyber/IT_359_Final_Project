@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from urllib.parse import urlparse, parse_qs, urlencode, urljoin
 from bs4 import BeautifulSoup
 from colorama import Fore, Style, init
@@ -11,11 +11,9 @@ SESSION = requests.Session()
 SQLI = "' OR '1'='1"
 XSS = "<script>alert(1)</script>"
 
-# ------------------------
-# BANNER
-# ------------------------
+# ----------------
 def banner():
-    print(Fore.CYAN + r"""
+    print(Fore.CYAN + """
     
 ██████╗░░█████╗░██████╗░░█████╗░██████╗░████████╗       ██╗██████╗░
 ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝       ╚═╝╚════██╗
@@ -23,14 +21,13 @@ def banner():
 ██╔══██╗██║░░██║██╔══██╗██║░░██║██╔══██╗░░░██║░░░       ░░░░╚═══██╗
 ██║░░██║╚█████╔╝██████╦╝╚█████╔╝██║░░██║░░░██║░░░       ██╗██████╔╝
 ╚═╝░░╚═╝░╚════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░       ╚═╝╚═════╝░
-╔══════════════════════════════════════╗
-║            ROBORT :3 SCANNER         ║
-╚══════════════════════════════════════╝
+
+╔══════════════════════════════╗
+║        ROBORT:3 SCANNER      ║
+╚══════════════════════════════╝
 """)
 
-# ------------------------
-# PARAM INJECTION
-# ------------------------
+# ----------------
 def inject(url, payload):
     parsed = urlparse(url)
     params = parse_qs(parsed.query)
@@ -45,17 +42,32 @@ def inject(url, payload):
         urls.append(f"{parsed.scheme}://{parsed.netloc}{parsed.path}?{urlencode(temp, doseq=True)}")
     return urls
 
-# ------------------------
-# FORM SCANNING
-# ------------------------
+# ----------------
+def test_params(url):
+    findings = []
+
+    for u in inject(url, SQLI):
+        r = SESSION.get(u)
+        if any(e in r.text.lower() for e in ["sql", "syntax", "mysql"]):
+            findings.append(("SQL Injection", "HIGH", u))
+
+    for u in inject(url, XSS):
+        r = SESSION.get(u)
+        if XSS in r.text:
+            findings.append(("XSS", "MEDIUM", u))
+
+    return findings
+
+# ----------------
 def test_forms(url):
     findings = []
+
     try:
         r = SESSION.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
 
         for form in soup.find_all("form"):
-            action = form.get("action")
+            action = form.get("action") or ""
             method = form.get("method", "get").lower()
             form_url = urljoin(url, action)
 
@@ -77,48 +89,30 @@ def test_forms(url):
 
                     if any(e in res.text.lower() for e in ["sql","mysql","syntax"]):
                         findings.append(("SQLi (Form)", "HIGH", form_url))
+
     except:
         pass
 
     return findings
 
-# ------------------------
-# PARAM TESTING
-# ------------------------
-def test(url):
-    findings = []
-
-    for u in inject(url, SQLI):
-        r = SESSION.get(u)
-        if any(e in r.text.lower() for e in ["sql","syntax"]):
-            findings.append(("SQL Injection", "HIGH", u))
-
-    for u in inject(url, XSS):
-        r = SESSION.get(u)
-        if XSS in r.text:
-            findings.append(("XSS", "MEDIUM", u))
-
-    return findings
-
-# ------------------------
-# HEADERS
-# ------------------------
+# ----------------
 def check_headers(url):
-    r = SESSION.get(url)
     findings = []
+    try:
+        r = SESSION.get(url)
 
-    if "Content-Security-Policy" not in r.headers:
-        findings.append(("Missing CSP", "LOW", url))
-    if "X-Frame-Options" not in r.headers:
-        findings.append(("Missing X-Frame", "LOW", url))
-    if "Strict-Transport-Security" not in r.headers:
-        findings.append(("Missing HSTS", "LOW", url))
+        if "Content-Security-Policy" not in r.headers:
+            findings.append(("Missing CSP", "LOW", url))
+        if "X-Frame-Options" not in r.headers:
+            findings.append(("Missing X-Frame", "LOW", url))
+        if "Strict-Transport-Security" not in r.headers:
+            findings.append(("Missing HSTS", "LOW", url))
+    except:
+        pass
 
     return findings
 
-# ------------------------
-# TABLE OUTPUT
-# ------------------------
+# ----------------
 def print_results(findings):
     if not findings:
         print(Fore.GREEN + "[✓] No vulnerabilities found\n")
@@ -127,9 +121,7 @@ def print_results(findings):
     print(Fore.RED + f"\n[!] {len(findings)} vulnerabilities detected\n")
 
     table = []
-    for i, f in enumerate(findings, 1):
-        vuln, severity, url = f
-
+    for i, (vuln, severity, url) in enumerate(findings, 1):
         color = {
             "HIGH": Fore.RED,
             "MEDIUM": Fore.YELLOW,
@@ -140,45 +132,30 @@ def print_results(findings):
 
     print(tabulate(table, headers=["#", "Vulnerability", "Severity", "URL"], tablefmt="fancy_grid"))
 
-# ------------------------
-# SUMMARY
-# ------------------------
+# ----------------
 def print_summary(findings):
-    summary = {"HIGH": 0, "MEDIUM": 0, "LOW": 0}
-
+    summary = {"HIGH":0,"MEDIUM":0,"LOW":0}
     for f in findings:
         summary[f[1]] += 1
 
-    print("\n" + Fore.CYAN + "=== SCAN SUMMARY ===")
-    print(Fore.RED + f"HIGH:   {summary['HIGH']}")
+    print("\n=== SUMMARY ===")
+    print(Fore.RED + f"HIGH: {summary['HIGH']}")
     print(Fore.YELLOW + f"MEDIUM: {summary['MEDIUM']}")
-    print(Fore.BLUE + f"LOW:    {summary['LOW']}")
+    print(Fore.BLUE + f"LOW: {summary['LOW']}")
 
-# ------------------------
-# MAIN SCAN
-# ------------------------
-import json
+# ----------------
+def save_json(findings, filename="report.json"):
+    data = [{"type":f[0],"severity":f[1],"url":f[2]} for f in findings]
+    with open(filename,"w") as f:
+        json.dump(data,f,indent=4)
+    print(f"\n[+] Saved to {filename}")
 
+# ----------------
 def scan_site(url):
     findings = []
-    findings += test(url)
+    findings += test_params(url)
     findings += test_forms(url)
     findings += check_headers(url)
 
     print_results(findings)
     return findings
-
-def save_json(findings, filename="report.json"):
-    data = [
-        {
-            "type": f[0],
-            "severity": f[1],
-            "url": f[2]
-        }
-        for f in findings
-    ]
-
-    with open(filename, "w") as f:
-        json.dump(data, f, indent=4)
-
-    print(f"\n[+] Results saved to {filename}")

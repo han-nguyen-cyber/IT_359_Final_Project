@@ -4,21 +4,20 @@ from dvwa import scan_dvwa
 from ai import generate_ai_report
 
 def main():
-    parser = argparse.ArgumentParser(description="Vulnix Web Vulnerability Scanner")
+    parser = argparse.ArgumentParser(description="Vulnix Scanner")
 
     parser.add_argument("--target", help="Target URL")
-    parser.add_argument("--dvwa", action="store_true", help="Enable DVWA mode")
-    parser.add_argument("--no-ai", action="store_true", help="Disable AI report")
-    parser.add_argument("--json", action="store_true", help="Save results as JSON")
+    parser.add_argument("--dvwa", action="store_true", help="DVWA mode")
+    parser.add_argument("--no-ai", action="store_true", help="Disable AI")
+    parser.add_argument("--json", action="store_true", help="Save JSON")
 
     args = parser.parse_args()
 
     banner()
 
-    # Handle target
     target = args.target if args.target else input("Target URL: ")
 
-    # Scan mode
+    # Scan
     if args.dvwa:
         findings = scan_dvwa(target)
     else:
@@ -26,15 +25,15 @@ def main():
 
     print_summary(findings)
 
-    # Save JSON
     if args.json:
         save_json(findings)
 
-    # AI report
     if not args.no_ai:
         print("\n[+] Generating AI report...\n")
-        print(generate_ai_report(findings))
-
+        try:
+            print(generate_ai_report(findings))
+        except Exception as e:
+            print(f"[!] AI failed: {e}")
 
 if __name__ == "__main__":
     main()
