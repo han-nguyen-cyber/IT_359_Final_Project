@@ -1,0 +1,26 @@
+from scanner import scan_site
+from dvwa import scan_dvwa
+from ai import generate_ai_report
+
+def banner():
+    print(r"""
+██████╗░░█████╗░██████╗░░█████╗░██████╗░████████╗       ██╗██████╗░
+██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝       ╚═╝╚════██╗
+██████╔╝██║░░██║██████╦╝██║░░██║██████╔╝░░░██║░░░       ░░░░█████╔╝
+██╔══██╗██║░░██║██╔══██╗██║░░██║██╔══██╗░░░██║░░░       ░░░░╚═══██╗
+██║░░██║╚█████╔╝██████╦╝╚█████╔╝██║░░██║░░░██║░░░       ██╗██████╔╝
+╚═╝░░╚═╝░╚════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░       ╚═╝╚═════╝░
+
+        ROBORT SCANNER v1.0
+    """)
+if __name__ == "__main__":
+    banner()
+    target = input("Target URL: ")
+
+    if "dvwa" in target:
+        findings = scan_dvwa(target)
+    else:
+        findings = scan_site(target)
+
+    print("\n[+] Generating AI report...\n")
+    print(generate_ai_report(findings))
