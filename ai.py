@@ -1,18 +1,28 @@
 import requests, os, json
+from dotenv import load_dotenv
+load_dotenv()
 
 URL = "http://sushi.it.ilstu.edu:8080/api/chat/completions"
 MODEL = "translategemma:latest"
 
 def generate_ai_report(findings, api_key=None):
-    token = api_key or os.getenv("API_KEY")
+    token = os.getenv("MY_API_KEY")
     if not token:
-        return "[!] Missing API key"
+        return "[!] MISSING API KEY."
 
     payload = {
         "model": MODEL,
         "messages": [
-            {"role": "system", "content": "You are a cybersecurity analyst."},
-            {"role": "user", "content": json.dumps(findings)}
+            {"role": "system",
+	 "content": (
+	"You are a senior cybersecurity digital penetration tester specialist. "
+	"When answering, provide a detailed report, risk analysis, remediation"
+	"suggestions, and MITRE ATT&CK mapping. Avoid em-dashes and keep an"
+	"informative, educational tone."
+	),
+},
+            {"role": "user", 
+		"content": json.dumps(findings)}
         ]
     }
 

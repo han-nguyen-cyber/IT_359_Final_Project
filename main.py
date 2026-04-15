@@ -4,7 +4,7 @@ from dvwa import scan_dvwa
 from ai import generate_ai_report
 
 def main():
-    parser = argparse.ArgumentParser(description="Vulnix Scanner")
+    parser = argparse.ArgumentParser(description="Robort :3 Scanner")
 
     parser.add_argument("--target", help="Target URL")
     parser.add_argument("--dvwa", action="store_true", help="DVWA mode")
