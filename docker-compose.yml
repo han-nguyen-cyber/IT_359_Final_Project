@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  robort:
+    build: ./robort
+    container_name: robort
+    stdin_open: true
+    tty: true
+    depends_on:
+      - dvwa
+    environment:
+      - MY_API_KEY=${MY_API_KEY}
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    ports:
+      - "8081:80"
+
+  vulnapp:
+    build: ./vulnapp
+    container_name: vulnapp
+    ports:
+      - "5000:5000"
