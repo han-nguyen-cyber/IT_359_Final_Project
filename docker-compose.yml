@@ -31,5 +31,5 @@ services:
     build: ./vulnapp
     container_name: vulnapp
     ports:
-	# Mapping host port 5000 to container port 5000
+    # Mapping host port 5000 to container port 5000
       - "5000:5000"
