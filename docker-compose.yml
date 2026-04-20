@@ -1,24 +1,35 @@
+# Docker Compose Specification Version
 version: "3.8"
 
 services:
+  # Custom Scanner:
   robort:
+    # Build context points to the directory containing the Dockerfile
     build: ./robort
     container_name: robort
+    # Enabling interactive shell 
     stdin_open: true
     tty: true
+    # Ensures the DVWA (Damn Vulnerable Web App) container starts before this service
     depends_on:
       - dvwa
+    # Importing sensitive credentials from the .env file
     environment:
       - MY_API_KEY=${MY_API_KEY}
 
+  # DVWA (Damn Vulnerable Web App)
+  # This is target #1 for security testing
   dvwa:
     image: vulnerables/web-dvwa
     container_name: dvwa
     ports:
+      # Mapping host port 8081 to container port 80
       - "8081:80"
 
+  # Vibe-Coded Web App
   vulnapp:
     build: ./vulnapp
     container_name: vulnapp
     ports:
+	# Mapping host port 5000 to container port 5000
       - "5000:5000"
