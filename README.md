@@ -69,7 +69,7 @@ This project also includes a containerized testing environment using Docker, all
    ```
    sudo apt-get update
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
-   ``` 
+  ``` 
 
 2. **Project Setup:**\
 
@@ -95,7 +95,7 @@ robort/
 ```docker-compose down
 docker system prune -f
 docker-compose build --no-cache
-docker-compose up ```
+docker-compose up ``` \
 
 This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
 
