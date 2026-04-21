@@ -13,14 +13,14 @@
 - **Presentation lead:** Carter Steiling
 - **Documentation Lead:** Michael Mui
 
-## 1. Project Overview:
+## i. Project Overview:
 Robort is a custom-built web application vulnerability scanner with an AI integration, designed to identify common security issues in web applications, including SQL injection, cross-site scripting (XSS), and security misconfigurations. This tool is built to provide transparency on how automated scanners work, allowing users to understand detection logic, rather than relying on "black box" tools.
 
 Robort combines automated scanning techniques with AI-powered reporting to generate detailed security assessments, which include risk analysis, remediation recommendations, and mapping to the MITRE ATT&CK framework.
 
 This project also includes a containerized testing environment using Docker, allowing users to scan intentionally vulnerable targets such as Damn Vulnerable Web Application (DVWA), and a vulnerable vibe-coded web application.
 
-## 2. List of Features:
+## ii. List of Features:
 
 1. **Automated Vulnerability Scanning**\
    a. Detects SQL Injection (SQLi)
@@ -55,7 +55,7 @@ This project also includes a containerized testing environment using Docker, all
 12. **JSON Export**\
           1. Scan results can be saved for later analysis or AI processing. 
 
-## 3. Instructions on How to Set Up and Run the Tool:
+## iii. Instructions on How to Set Up and Run the Tool:
 
 1. **Prerequisites:**\
      a. **Remove Old Versions of Docker:**
