@@ -44,9 +44,9 @@ This project also includes a containerized testing environment using Docker, all
      3. MITRE ATT&CK framework mappings
         
 8. **Professional Output Formatting**\
-     a. Color-coded severity levels (High, Medium, Low)
-     b. Table-based vulnerability display
-     c. Summary Statistics
+     a. Color-coded severity levels (High, Medium, Low) \
+     b. Table-based vulnerability display \
+     c. Summary Statistics \
    
 10. **Dockerized Lab Environment**\
      a. Scanner runs in its own container
