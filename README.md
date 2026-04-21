@@ -94,12 +94,12 @@ robort/
    This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
 
 4. **Access Targets:**\
-     a. Access DVWA:\
+     a. **Access DVWA:**\
         - Link: http://localhost:8081\
         - Username: admin\
         - Password: password\
         - The security level should be set to LOW.\
-     b. Access the Vibe-Coded Vulnerable App:\
+     b. **Access the Vibe-Coded Vulnerable App:**\
         - Link: http://localhost:5000\
 
 5. **Run the Scanner:**\
