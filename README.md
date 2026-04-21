@@ -25,9 +25,9 @@ This project also includes a containerized testing environment using Docker, all
 
 ## ii. List of Features:
 1. **Automated Vulnerability Scanning**\
-   a. Detects SQL Injection (SQLi)
-   b. Detects Cross-Site Scripting (XSS)
-   c. Identifies missing security headers (CSP, HSTS, X-Frame-Options)
+   a. Detects SQL Injection (SQLi) \
+   b. Detects Cross-Site Scripting (XSS) \
+   c. Identifies missing security headers (CSP, HSTS, X-Frame-Options) \
    
 3. **Form & Parameter Testing**\
    a. Injects payloads into URL parameters and HTML forms
