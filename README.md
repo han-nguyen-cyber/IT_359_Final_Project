@@ -83,6 +83,7 @@ This project also includes a containerized testing environment using Docker, all
 
 ```
 robort/
+|--- .env
 |--- docker-compose.yml
 |--- robort/
 |--- vulnapp/
