@@ -69,7 +69,7 @@ This project also includes a containerized testing environment using Docker, all
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
    ``` 
 
-2. **Project Setup:**
+2. **Project Setup:**\
 
      a. **Download this project's code.**
 
@@ -86,14 +86,14 @@ robort/
 |--- vulnapp/
 ```
 
-3. **Start the Environment:**
+3. **Start the Environment:**\
      a. Build and launch all the services using the following command:
    
    ` docker-compose up --build `
 
    This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
 
-4. **Access Targets:**
+4. **Access Targets:**\
      a. If you want to access DVWA:
         - Link: http://localhost:8081
         - Username: admin
@@ -102,7 +102,7 @@ robort/
      b. If you want to access the Vibe-Coded vulnerable app:
         - Link: http://localhost:5000
 
-5. **Run the Scanner:**
+5. **Run the Scanner:**\
      a. Open a new terminal, and access the scanner container:
    ` docker exec -it robort bash `
 
