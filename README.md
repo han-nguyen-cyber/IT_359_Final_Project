@@ -62,7 +62,7 @@ This project also includes a containerized testing environment using Docker, all
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
    ``` 
 
-2. **Project Setup:**\
+2. **Project Setup:**
 
      a. **Download this project's code.**
 
