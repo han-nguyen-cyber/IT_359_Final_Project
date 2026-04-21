@@ -68,8 +68,8 @@ This project also includes a containerized testing environment using Docker, all
    
    ```
    sudo apt-get update
-   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
-  ``` 
+   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   ``` 
 
 2. **Project Setup:**\
 
@@ -112,12 +112,15 @@ docker-compose up
 
 6. **Run the Scanner:**\
      a. Open a new terminal, and access the scanner container:
+   
    ` docker exec -it robort bash `
 
      b. Scan DVWA:
+   
      ` python main.py --target http://dvwa/ --dvwa --json `
 
      c. Scan Vibe-Coded Web App:
+   
    ` python main.py --target http://vulnapp:5000 --json `
 
      d. To generate an AI Report:
