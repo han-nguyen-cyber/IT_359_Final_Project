@@ -1,6 +1,8 @@
 # IT\_359\_Final\_Project
 
 # Robort :3 – Custom Web Vulnerability Scanner with AI Reporting
+<img width="886" height="827" alt="Preview" src="https://github.com/user-attachments/assets/7dbbe7e3-07bc-4cc7-bf69-0f578932b47e" />
+
 **Notes:**
 - This was a custom web application vulnerability scanner, with an AI integration element of AI reporting, made as a project for IT 359.
 - This readme outlines:
