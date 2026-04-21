@@ -107,10 +107,11 @@ docker-compose up
         - Username: admin \
         - Password: password \
         - The security level should be set to LOW. \
+   
      b. **Access the Vibe-Coded Vulnerable App:** \
         - Link: http://localhost:5000
 
-6. **Run the Scanner:**\
+7. **Run the Scanner:**\
      a. Open a new terminal, and access the scanner container:
    
    ` docker exec -it robort bash `
