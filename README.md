@@ -1,6 +1,6 @@
 # IT\_359\_Final\_Project
 
-# Robort:3 – Custom Web Vulnerability Scanner
+# Robort :3 – Custom Web Vulnerability Scanner
 **Roles:** 
 - **Technical Lead:** Han Nguyen
 - **Presentation lead:** Carter Steiling
