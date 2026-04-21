@@ -95,12 +95,12 @@ robort/
 
 4. **Access Targets:**\
      a. **Access DVWA:**\
-        - Link: http://localhost:8081\
+        - Link: http://localhost:8081
         - Username: admin\
         - Password: password\
         - The security level should be set to LOW.\
      b. **Access the Vibe-Coded Vulnerable App:**\
-        - Link: http://localhost:5000\
+        - Link: http://localhost:5000
 
 5. **Run the Scanner:**\
      a. Open a new terminal, and access the scanner container:
