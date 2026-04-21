@@ -97,7 +97,7 @@ docker system prune -f
 docker-compose build --no-cache
 docker-compose up ```
 
-   This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
+This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
 
 5. **Access Targets:**\
      a. **Access DVWA:**\
