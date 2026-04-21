@@ -40,7 +40,7 @@ This project also includes a containerized testing environment using Docker, all
           1. Damn Vulnerable Web Application (DVWA)
           2. Vibe-Coded Vulnerable Web Application
      c. JSON Export
-          1. Scan results can be saved for later analysis, or AI processing. 
+          1. Scan results can be saved for later analysis or AI processing. 
 
 ## Instructions on How to Set Up and Run the Tool:
 
@@ -53,8 +53,8 @@ This project also includes a containerized testing environment using Docker, all
    
    ```
    sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
-``` 
+   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
+   ``` 
 
 3. Project Setup
 
@@ -64,7 +64,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
    `cd ~/Downloads/robort`
 
-     c. Ensure the folder structuer looks like this:
+     c. Ensure the folder structure looks like this:
 
 ```
 robort/
