@@ -125,8 +125,8 @@ docker-compose up
    ` python main.py --target http://vulnapp:5000 --json `
 
      d. To generate an AI Report:
-         - An API key must be configured by creating an .env file, and defining "MY_API_KEY=xxxxxxx", where you must provide your own API key for the http://sushi.it.ilstu.edu:8080/ server.
-   
+         - An API key must be configured to interact with the sushi.it.ilstu.edu server. By creating an .env file, and defining "MY_API_KEY=xxxxxxx", and providing your own API key for the http://sushi.it.ilstu.edu:8080/ server, you can use the AI reporting feature on this tool.
+
    ` python main.py --target http://dvwa/ --dvwa `
 
    With the above command, the tool will automatically generate a detailed AI-based vulnerability report. 
