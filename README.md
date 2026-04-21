@@ -6,7 +6,7 @@
 - This readme outlines:
   1) The Project Overview
   2) The Tool's List of Features
-  3) Instructions on How to Set Up and Run the Tool.
+  3) Instructions on How to Set Up and Run the Tool
   
 **Roles:** 
 - **Technical Lead:** Han Nguyen
