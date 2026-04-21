@@ -3,6 +3,7 @@
 # Robort :3 – Custom Web Vulnerability Scanner with AI Reporting
 **Notes:**
 - This was a custom web application vulnerability scanner, with an AI integration element of AI reporting, made as a project for IT 359.
+- This readme outlines 1) the Project Overview, 2) the tool's List of Features, and 3) Instructions on How to Set Up and Run the Tool.
   
 **Roles:** 
 - **Technical Lead:** Han Nguyen
