@@ -92,12 +92,12 @@ robort/
 3. **Start the Environment:**\
      a. Perform a clean build and launch all the services using the following commands:
    
-```
+
 docker-compose down
 docker system prune -f
 docker-compose build --no-cache
 docker-compose up 
-``` 
+
 
  b. This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
 
