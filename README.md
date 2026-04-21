@@ -51,8 +51,10 @@ This project also includes a containerized testing environment using Docker, all
 
      b. Install Docker and Docker Compose (on Debian-based system)
    
-   ```sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin ``` 
+   ```
+   sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
+``` 
 
 3. Project Setup
 
@@ -64,7 +66,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
      c. Ensure the folder structuer looks like this:
 
-```robort/
+```
+robort/
 |--- docker-compose.yml
 |--- robort/
-|--- vulnapp/```
+|--- vulnapp/
+```
