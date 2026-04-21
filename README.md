@@ -30,8 +30,8 @@ This project also includes a containerized testing environment using Docker, all
    
 7. **AI-Powered Reporting (AI Integration)**\
    a. Generates structured security reports, including:
-     1. Risk analysis\
-     2. Remediation strategies\
+     1. Risk analysis
+     2. Remediation strategies
      3. MITRE ATT&CK framework mappings
         
 8. **Professional Output Formatting**\
@@ -51,11 +51,11 @@ This project also includes a containerized testing environment using Docker, all
 ## Instructions on How to Set Up and Run the Tool:
 
 1. **Prerequisites:**\
-     a. **Remove Old Versions of Docker:**\
+     a. **Remove Old Versions of Docker:**
    
    `for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
-     b. Install Docker and Docker Compose (on Debian-based system)
+     b. **Install Docker and Docker Compose (on Debian-based system)**
    
    ```
    sudo apt-get update
