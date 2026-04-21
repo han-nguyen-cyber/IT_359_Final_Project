@@ -19,22 +19,27 @@ This project also includes a containerized testing environment using Docker, all
    a. Detects SQL Injection (SQLi)\
    b. Detects Cross-Site Scripting (XSS)\
    c. Identifies missing security headers (CSP, HSTS, X-Frame-Options)\
+   
 3. **Form & Parameter Testing**\
    a. Injects payloads into URL parameters and HTML forms\
    b. Analyzes server responses for indicators of vulnerabilities\
-4. **DVWA Mode**\
+   
+5. **DVWA Mode**\
    a. Specialized scanning for Damn Vulnerable Web Application (DVWA), to mimic an organization's need for custom detection logic based on unique attack surface pertaining to their information environment. \
    b. Consistently identifies vulnerabilities.\
-5. **AI-Powered Reporting (AI Integration)**\
+   
+7. **AI-Powered Reporting (AI Integration)**\
    a. Generates structured security reports, including:\
      1. Risk analysis\
      2. Remediation strategies\
      3. MITRE ATT&CK framework mappings\
-6. **Professional Output Formatting**\
+        
+8. **Professional Output Formatting**\
      a. Color-coded severity levels (High, Medium, Low)\
      b. Table-based vulnerability display\
      c. Summary Statistics\
-7. **Dockerized Lab Environment**\
+   
+10. **Dockerized Lab Environment**\
      a. Scanner runs in its own container\
      b. The available targets include:\
           1. Damn Vulnerable Web Application (DVWA)\
@@ -45,7 +50,7 @@ This project also includes a containerized testing environment using Docker, all
 ## Instructions on How to Set Up and Run the Tool:
 
 1. **Prerequisites:**\
-     a. Remove Old Versions of Docker:\
+     a. **Remove Old Versions of Docker:**\
    
    `for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
