@@ -85,3 +85,37 @@ robort/
 |--- robort/
 |--- vulnapp/
 ```
+
+3. **Start the Environment:**
+     a. Build and launch all the services using the following command:
+   
+   ` docker-compose up --build `
+
+   This command will start the Robort scanner container, DVWA on port 8081, and the vulnerable vibe-coded app on port 5000.
+
+4. **Access Targets:**
+     a. If you want to access DVWA:
+        - Link: http://localhost:8081
+        - Username: admin
+        - Password: password
+        - The security level should be set to LOW.
+     b. If you want to access the Vibe-Coded vulnerable app:
+        - Link: http://localhost:5000
+
+5. **Run the Scanner:**
+     a. Open a new terminal, and access the scanner container:
+   ` docker exec -it robort bash `
+
+     b. Scan DVWA:
+     ` python main.py --target http://dvwa/ --dvwa --json `
+
+     c. Scan Vibe-Coded Web App:
+   ` python main.py --target http://vulnapp:5000 --json `
+
+     d. To generate an AI Report:
+         - An API key must be configured by creating an .env file, and defining "MY_API_KEY=xxxxxxx", where you must provide your own API key for the http://sushi.it.ilstu.edu:8080/ server.
+   
+   ` python main.py --target http://dvwa/ --dvwa `
+
+   With the above command, the tool will automatically generate a detailed AI-based vulnerability report. 
+   
