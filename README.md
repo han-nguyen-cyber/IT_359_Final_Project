@@ -1,4 +1,4 @@
-# IT\_359\_Final\_Project
+# IT\_359\_Final\_Project_Group_8
 
 # Robort :3 – Custom Web Vulnerability Scanner with AI Reporting
 <img width="823" height="716" alt="image" src="https://github.com/user-attachments/assets/44696784-f653-4353-b506-8e85ac1b61f6" />
