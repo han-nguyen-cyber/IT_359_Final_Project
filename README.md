@@ -24,7 +24,6 @@ Robort combines automated scanning techniques with AI-powered reporting to gener
 This project also includes a containerized testing environment using Docker, allowing users to scan intentionally vulnerable targets such as Damn Vulnerable Web Application (DVWA), and a vulnerable vibe-coded web application.
 
 ## ii. List of Features:
-
 1. **Automated Vulnerability Scanning**\
    a. Detects SQL Injection (SQLi)
    b. Detects Cross-Site Scripting (XSS)
