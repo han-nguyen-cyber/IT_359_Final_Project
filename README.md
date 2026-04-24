@@ -27,7 +27,7 @@ This project also includes a containerized testing environment using Docker, all
 1. **Automated Vulnerability Scanning**\
    a. Detects SQL Injection (SQLi) \
    b. Detects Cross-Site Scripting (XSS) \
-   c. Identifies missing security headers (CSP, HSTS, X-Frame-Options) \
+   c. Identifies missing security headers (CSP, HSTS, X-Frame-Options) 
    
 3. **Form & Parameter Testing**\
    a. Injects payloads into URL parameters and HTML forms
@@ -46,7 +46,7 @@ This project also includes a containerized testing environment using Docker, all
 8. **Professional Output Formatting**\
      a. Color-coded severity levels (High, Medium, Low) \
      b. Table-based vulnerability display \
-     c. Summary Statistics \
+     c. Summary Statistics 
    
 10. **Dockerized Lab Environment**\
      a. Scanner runs in its own container
@@ -106,7 +106,7 @@ docker-compose up
         - Link: http://localhost:8081 \
         - Username: admin \
         - Password: password \
-        - The security level should be set to LOW. \
+        - The security level should be set to LOW. 
    
      b. **Access the Vibe-Coded Vulnerable App:** \
         - Link: http://localhost:5000
